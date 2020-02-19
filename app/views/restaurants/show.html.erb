@@ -1,0 +1,19 @@
+<h1><%= @restaurant[:name] %></h1>
+ <!-- Find me in app/views/restaurants/show.html.erb -->
+<p><%= @restaurant[:name] %></p>
+<p><%= @restaurant[:category] %></p>
+<p><%= @restaurant[:address] %></p>
+<p><%= @restaurant[:rating] %></p>
+<br>
+
+<ul><% @restaurant.reviews.each do |review| %>
+  <li><strong>Stars: </strong><%= review.rating %> <strong>Review: </strong>
+  <%= review.content %></li>
+  <br>
+  <br>
+<% end %>
+ </ul>
+
+<p class="btn btn-success"><%= link_to "Leave a Review for This Restaurant", new_restaurant_review_path(@restaurant.id) %></p>
+<br>
+<p class="btn btn-warning"><%= link_to "Back to Restaurants List!", restaurants_path %></p>
